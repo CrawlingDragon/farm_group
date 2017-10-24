@@ -1,2 +1,1 @@
-# farm_group
-农资门户网站-响应式
+#定位项目 命令提示符执行cnpm install
