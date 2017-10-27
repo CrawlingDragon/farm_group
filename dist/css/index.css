@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/*声明 WebFont*/
+@font-face {
+  font-family: 'pinghei';
+  src: url("../font/SourceHanSansCN-Regular.eot");
+  src: url("../font/SourceHanSansCN-Regular.eot?#font-spider") format("embedded-opentype"), url("../font/SourceHanSansCN-Regular.woff") format("woff"), url("/font/sourcehansanscnregular.ttf") format("truetype"), url("../font/SourceHanSansCN-Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+p {
+  font-family: 'pinghei'; }
+
+body {
+  font-family: Microsoft Yahei, SimSun, Helvetica, SimHei;
+  background: red; }

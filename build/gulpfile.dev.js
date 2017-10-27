@@ -7,6 +7,7 @@ var jshint = require('gulp-jshint'); //js检查 ==> npm install --save-dev jshin
 var uglify = require('gulp-uglify'); //js压缩
 var concat = require('gulp-concat'); //合并文件
 var imagemin = require('gulp-imagemin'); //图片压缩
+var font = require('gulp-font-spider');  //字体
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 var Config = require('./gulpfile.config.js');
@@ -20,6 +21,7 @@ function dev() {
 			stream: true
 		}));
 	});
+
 	/**
 	 * assets文件夹下的所有文件处理
 	 */
@@ -44,6 +46,14 @@ function dev() {
 			stream: true
 		}));
 	});
+	// **
+	// ** 字体处理
+	// **
+	gulp.task('fontspider:dev', function () {
+		return gulp.src(Config.html.src).pipe(font()).pipe(reload({
+			stream: true
+		}));
+	});
 	/**
 	 * js处理
 	 */
@@ -64,7 +74,9 @@ function dev() {
 			stream: true
 		}));
 	});
-	gulp.task('dev', ['html:dev', 'css:dev', 'sass:dev', 'js:dev', 'assets:dev', 'images:dev'], function () {
+
+
+	gulp.task('dev', ['html:dev', 'css:dev', 'sass:dev', 'js:dev', 'assets:dev', 'images:dev','fontspider:dev'], function () {
 		browserSync.init({
 			server: {
 				baseDir: Config.dist
